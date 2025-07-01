@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
+<suite name="All Test Suite">
+    <test verbose="2" preserve-order="true" name="D:/SELENIUM/demoProject/FinalProjectAutomation">
+        <classes>
+            <class name="tests.TestRegistrationPage">
+                <methods>
+                    <include name="testValidRegistration"/>
+                </methods>
+            </class>
+            <class name="tests.TestLoginPage">
+                <methods>
+                    <include name="testLoginFeature"/>
+                </methods>
+            </class>
+
+            <class name="tests.TestForgotPasswordPage">
+                <methods>
+                    <include name="testForgotPassField"/>
+                </methods>
+            </class>
+        </classes>
+    </test>
+</suite>
