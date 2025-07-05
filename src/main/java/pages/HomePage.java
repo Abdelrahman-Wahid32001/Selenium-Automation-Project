@@ -16,4 +16,32 @@ public class HomePage extends PageBase {
         wait.until(ExpectedConditions.elementToBeClickable(accountButton));
         accountButton.click();
     }
+
+    @FindBy(xpath= "/html/body/div/div/footer/div/div[2]/ul/li[2]/a")
+    WebElement contactUs;
+    public void openContactUsPage(){
+        scrollDown();
+        clickBtn(contactUs);
+    }
+
+    @FindBy (xpath = "//*[@id=\"main-content\"]/div/div[3]/div[2]/ul/li[3]")
+    WebElement newProductSectionItem2;
+     public void selectProductItem(){
+         clickBtn(newProductSectionItem2);
+     }
+
+     @FindBy(css = "li.level0.nav-2 parent")
+    WebElement manCategory;
+     @FindBy(css = "li.level1.nav-2-2")
+    WebElement shirtsOnManCategoryBtn;
+
+     public void selectFromCategory(){
+         action
+                 .click(manCategory)
+                 .click(shirtsOnManCategoryBtn)
+                 .build()
+                 .perform();
+     }
+
+
 }
