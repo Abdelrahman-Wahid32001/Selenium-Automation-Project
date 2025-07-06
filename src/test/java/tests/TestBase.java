@@ -1,11 +1,11 @@
 package tests;
 
 import org.openqa.selenium.WebDriver;
-import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.edge.EdgeDriver;
 import org.openqa.selenium.firefox.FirefoxDriver;
 import org.testng.ITestResult;
 import org.testng.annotations.*;
+import utilities.CleanBrowser;
 import utilities.ScreenShots;
 
 import java.time.Duration;
@@ -16,7 +16,7 @@ public class TestBase {
 
     @BeforeSuite
     @Parameters("browser")
-    public void setUpEnvironment(@Optional("chrome") String browserName) {
+    public void setUpEnvironment(String browserName) {
         switch (browserName.toLowerCase(Locale.ROOT)) {
             case "firefox":
                 driver = new FirefoxDriver();
@@ -25,12 +25,14 @@ public class TestBase {
                 driver = new EdgeDriver();
                 break;
             default:
-                driver = new ChromeDriver();
+                driver  = CleanBrowser.createDriver();
                 break;
         }
             driver.get("https://demo.mahocommerce.com/");
+            driver.manage().window().maximize();
             System.out.println("🧭 Current URL: " + driver.getCurrentUrl());
             driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(10));
+
 
 
     }

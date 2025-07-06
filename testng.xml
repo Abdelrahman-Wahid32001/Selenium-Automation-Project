@@ -1,11 +1,22 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
 <suite name="All Test Suite">
-    <test verbose="2" preserve-order="true" name="D:/SELENIUM/demoProject/FinalProjectAutomation">
+    <parameter name="browser" value="chrome">browser</parameter>
+    <test verbose="2" preserve-order="false" name="D:/FinalProjectAutomation">
         <classes>
-            <class name="tests.TestRegistrationPage">
+            <class name="tests.TestBillingInformationPage">
                 <methods>
-                    <include name="testValidRegistration"/>
+                    <include name="testBillingInformationFeature"/>
+                </methods>
+            </class>
+            <class name="tests.TestContactUsPage">
+                <methods>
+                    <include name="testContactUsfeature"/>
+                </methods>
+            </class>
+            <class name="tests.TestForgotPasswordPage">
+                <methods>
+                    <include name="testForgotPassField"/>
                 </methods>
             </class>
             <class name="tests.TestLoginPage">
@@ -13,10 +24,19 @@
                     <include name="testLoginFeature"/>
                 </methods>
             </class>
-
-            <class name="tests.TestForgotPasswordPage">
+            <class name="tests.TestRegistrationPage">
                 <methods>
-                    <include name="testForgotPassField"/>
+                    <include name="testValidRegistration"/>
+                </methods>
+            </class>
+            <class name="tests.TestSearchPage">
+                <methods>
+                    <include name="testSearchFeature"/>
+                </methods>
+            </class>
+            <class name="tests.TestSuggestionSearch">
+                <methods>
+                    <include name="testSuggestionSearch"/>
                 </methods>
             </class>
         </classes>

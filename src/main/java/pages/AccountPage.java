@@ -1,9 +1,9 @@
 package pages;
 
+import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
-import org.openqa.selenium.support.ui.WebDriverWait;
 
 
 public class AccountPage extends PageBase {
@@ -24,8 +24,7 @@ public class AccountPage extends PageBase {
     @FindBy(id ="send2")
     WebElement loginBtn;
 
-    @FindBy(css = "a.f-left")
-    WebElement forgotPasswordBtn;
+    WebElement forgotPasswordBtn = driver.findElement(By.cssSelector("a.f-left"));
 
 
 

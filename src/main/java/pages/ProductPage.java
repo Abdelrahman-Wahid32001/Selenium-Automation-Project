@@ -8,16 +8,24 @@ public class ProductPage extends PageBase{
     public ProductPage(WebDriver driver) {
         super(driver);
     }
-    @FindBy(xpath = "//*[@id=\"swatch81\"]/span[1]")
+    @FindBy(xpath = "//*[@id='swatch77']/span[1]")
     WebElement sizeXS;
-    @FindBy(xpath = "//*[@id=\"swatch27\"]/span[1]/img")
+    @FindBy(xpath = "/span[1]/img")
     WebElement colorBlue;
+    @FindBy(xpath = "//*[@id='swatch22']/span[1]/img")
+    WebElement colorWhite;
     @FindBy(css = "button.button.btn-cart")
     WebElement addToCartButton;
 
     public void addToCart(){
         clickBtn(sizeXS);
         clickBtn(colorBlue);
+        clickBtn(addToCartButton);
+    }
+
+    public void addToCart(boolean bool){
+        clickBtn(sizeXS);
+        clickBtn(colorWhite);
         clickBtn(addToCartButton);
     }
 }
