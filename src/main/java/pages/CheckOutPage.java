@@ -8,12 +8,14 @@ import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.FluentWait;
 import org.openqa.selenium.support.ui.Wait;
+import utilities.PageBase;
 
 import java.time.Duration;
 
 public class CheckOutPage extends PageBase {
     public CheckOutPage(WebDriver driver) {
         super(driver);
+        logCurrentUrl("CheckOutPage");
 
     }
 

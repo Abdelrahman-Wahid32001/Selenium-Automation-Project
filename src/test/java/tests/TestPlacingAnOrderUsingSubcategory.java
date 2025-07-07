@@ -1,16 +1,16 @@
 package tests;
 
-import data.UserValidData;
+
 import org.testng.annotations.Test;
 import pages.*;
 
-public class TestBillingInformationPage extends TestBase{
+
+public class TestPlacingAnOrderUsingSubcategory extends TestBase{
     HomePage home;
     SubCategoryPage category;
     ProductPage product;
     BillingInformation info;
-    UserValidData user;
-    ShopingCartPage shopping;
+    ShoppingCartPage shopping;
     CheckOutMethodPage method;
     CheckOutPage checkout;
 
@@ -23,14 +23,13 @@ public class TestBillingInformationPage extends TestBase{
         category.openProductPage();
         product = new ProductPage(driver);
         product.addToCart(true);
-        shopping =new ShopingCartPage(driver);
+        shopping =new ShoppingCartPage(driver);
         shopping.updateNumberOfProduct("1");
         shopping.ProceedToCheckout();
         method = new CheckOutMethodPage(driver);
         method.getCheckoutPage();
         info = new BillingInformation(driver);
-        user = new UserValidData();
-        info.fillBillingInformationFields(user.getFname(), user.getLname(), user.getEmail(), user.getAddress(), user.getCity(), user.getZip(), user.getPhoneNo());
+        info.fillBillingInformationFields(data.getFname(), data.getLname(), data.getEmail(), data.getAddress(), data.getCity(), data.getZip(), data.getPhoneNo());
         checkout = new CheckOutPage(driver);
         checkout.finishCheckout();
     }

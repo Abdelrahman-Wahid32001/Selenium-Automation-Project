@@ -1,4 +1,6 @@
-package pages;
+package utilities;
+
+import org.apache.logging.log4j.Logger;
 import org.openqa.selenium.Alert;
 import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.WebDriver;
@@ -7,15 +9,21 @@ import org.openqa.selenium.interactions.Actions;
 import org.openqa.selenium.support.PageFactory;
 import org.openqa.selenium.support.ui.Select;
 
+
 public class PageBase {
     protected WebDriver driver;
     public JavascriptExecutor jse;
     public Actions action ;
     public Select select;
     public Alert alert;
+    protected Logger logger;
+
+
     public PageBase(WebDriver driver) {
         this.driver = driver;
         PageFactory.initElements(driver, this);
+        this.logger = LoggerUtility.getLogger(this.getClass());
+
     }
 
     protected static void setTxt(WebElement element, String word ){
@@ -34,6 +42,9 @@ public class PageBase {
     public void cancelerAlert(){
         alert = driver.switchTo().alert();
         alert.dismiss();
+    }
+    public void logCurrentUrl(String pageName) {
+        logger.info("📍 [{}] - Current URL: {}", pageName, driver.getCurrentUrl());
     }
 
 

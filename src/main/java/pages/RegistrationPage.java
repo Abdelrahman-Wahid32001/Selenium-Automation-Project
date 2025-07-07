@@ -1,13 +1,12 @@
 package pages;
 import org.openqa.selenium.*;
 import org.openqa.selenium.support.*;
-
-import java.time.Duration;
+import utilities.PageBase;
 
 public class RegistrationPage extends PageBase {
     public RegistrationPage(WebDriver driver) {
         super(driver);
-
+        logCurrentUrl("Registration Page");
     }
 
     @FindBy(id = "firstname")

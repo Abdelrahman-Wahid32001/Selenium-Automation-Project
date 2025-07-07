@@ -8,12 +8,14 @@ import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.FluentWait;
 import org.openqa.selenium.support.ui.Wait;
+import utilities.PageBase;
 
 import java.time.Duration;
 
-public class ShopingCartPage extends PageBase {
-    public ShopingCartPage(WebDriver driver) {
+public class ShoppingCartPage extends PageBase {
+    public ShoppingCartPage(WebDriver driver) {
         super(driver);
+        logCurrentUrl("Shopping Cart Page");
     }
 
     private final By proceedToCheckoutBtnLocator = By.xpath("//*[@id='main-content']/div/div[1]/ul/li/button");

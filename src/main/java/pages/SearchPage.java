@@ -3,6 +3,7 @@ package pages;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
+import utilities.PageBase;
 
 import java.util.List;
 
@@ -10,6 +11,7 @@ public class SearchPage extends PageBase {
 
     public SearchPage(WebDriver driver) {
         super(driver);
+        logCurrentUrl("Search Page");
     }
 
     @FindBy(id = "search")

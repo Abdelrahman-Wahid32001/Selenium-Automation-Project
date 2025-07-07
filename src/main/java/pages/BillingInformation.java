@@ -5,12 +5,14 @@ import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.FluentWait;
 import org.openqa.selenium.support.ui.Select;
 import org.openqa.selenium.support.ui.Wait;
+import utilities.PageBase;
 
 import java.time.Duration;
 
-public class BillingInformation extends PageBase{
+public class BillingInformation extends PageBase {
     public BillingInformation(WebDriver driver) {
         super(driver);
+        logCurrentUrl("BillingInformation");
         jse = (JavascriptExecutor) driver;
 
     }
@@ -29,7 +31,7 @@ public class BillingInformation extends PageBase{
     WebElement  continueBtn = driver.findElement(By.xpath("//*[@id=\"billing-buttons-container\"]/button"));
 
 
-    public void fillBillingInformationFields(String fname,String lname,String Email,String Address,String City,String ZIP,int telephoneNo,String pass){
+    public void fillBillingInformationFields(String fname,String lname,String Email,String Address,String City,String ZIP,String telephoneNo,String pass){
         setTxt(firstName,fname);
         setTxt(lastName,lname);
         setTxt(email,Email);
@@ -49,7 +51,7 @@ public class BillingInformation extends PageBase{
 
     }
 
-    public void fillBillingInformationFields(String fname,String lname,String Email,String Address,String City,String ZIP,int telephoneNo){
+    public void fillBillingInformationFields(String fname,String lname,String Email,String Address,String City,String ZIP,String telephoneNo){
 
         Wait<WebDriver> wait = new FluentWait<>(driver)
                 .withTimeout(Duration.ofSeconds(15))           // وقت الانتظار الكلي

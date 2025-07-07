@@ -24,7 +24,7 @@ public class ScreenShots extends TestBase {
             try {
                 FileUtils.copyFile(src,destFile);
             } catch (IOException e) {
-                System.out.println("حدث خطأ: " + e.getMessage());
+                logger.error("Error when TakeScreenshots: {}" , e.getMessage());
             }
         }
     }

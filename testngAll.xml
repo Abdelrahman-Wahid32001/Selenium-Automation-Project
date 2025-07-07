@@ -1,10 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
 <suite name="All Test Suite">
-    <parameter name="browser" value="chrome">browser</parameter>
+  <parameter name="browser" value="chrome">browser</parameter>
     <test verbose="2" preserve-order="false" name="D:/FinalProjectAutomation">
         <classes>
-            <class name="tests.TestBillingInformationPage">
+            <class name="tests.TestPlacingAnOrderUsingSubcategory">
                 <methods>
                     <include name="testBillingInformationFeature"/>
                 </methods>
@@ -12,14 +12,17 @@
             <class name="tests.TestContactUsPage">
                 <methods>
                     <include name="testContactUsfeature"/>
+                    <include name="testContactUsfeatureWithInvalidMassage"/>
+
                 </methods>
             </class>
             <class name="tests.TestForgotPasswordPage">
                 <methods>
                     <include name="testForgotPassField"/>
+                    <include name="testForgotPassFieldWithInvalidEmail"/>
                 </methods>
             </class>
-            <class name="tests.TestLoginPage">
+            <class name="tests.TestLoginToCreateOrder">
                 <methods>
                     <include name="testLoginFeature"/>
                 </methods>

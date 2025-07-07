@@ -3,13 +3,15 @@ package pages;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
+import utilities.PageBase;
 
-public class ProductPage extends PageBase{
+public class ProductPage extends PageBase {
     public ProductPage(WebDriver driver) {
         super(driver);
+        logCurrentUrl("Product Page");
     }
-    @FindBy(xpath = "//*[@id='swatch77']/span[1]")
-    WebElement sizeXS;
+    @FindBy(id = "swatch79")
+    WebElement sizeM;
     @FindBy(xpath = "/span[1]/img")
     WebElement colorBlue;
     @FindBy(xpath = "//*[@id='swatch22']/span[1]/img")
@@ -18,13 +20,13 @@ public class ProductPage extends PageBase{
     WebElement addToCartButton;
 
     public void addToCart(){
-        clickBtn(sizeXS);
+        clickBtn(sizeM);
         clickBtn(colorBlue);
         clickBtn(addToCartButton);
     }
 
     public void addToCart(boolean bool){
-        clickBtn(sizeXS);
+        clickBtn(sizeM);
         clickBtn(colorWhite);
         clickBtn(addToCartButton);
     }

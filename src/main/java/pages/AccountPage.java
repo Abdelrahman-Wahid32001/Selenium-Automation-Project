@@ -4,13 +4,14 @@ import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
+import utilities.PageBase;
 
 
 public class AccountPage extends PageBase {
 
     public AccountPage(WebDriver driver) {
         super(driver);
-        System.out.println(driver.getCurrentUrl());
+        logCurrentUrl("AccountPage");
     }
 
     @FindBy(xpath = "//a[@title='Create an Account']")
