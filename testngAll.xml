@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
 <suite name="All Test Suite">
-  <parameter name="browser" value="chrome">browser</parameter>
+  <parameter name="browser" value="chrome"/>
     <test verbose="2" preserve-order="false" name="D:/FinalProjectAutomation">
         <classes>
             <class name="tests.TestPlacingAnOrderUsingSubcategory">
@@ -13,7 +13,7 @@
                 <methods>
                     <include name="testContactUsfeature"/>
                     <include name="testContactUsfeatureWithInvalidMassage"/>
-
+                    <include name="testContactUsfeatureWithInvalidEmail"/>
                 </methods>
             </class>
             <class name="tests.TestForgotPasswordPage">

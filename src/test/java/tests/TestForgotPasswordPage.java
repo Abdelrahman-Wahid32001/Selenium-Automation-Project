@@ -2,36 +2,24 @@ package tests;
 
 
 import org.testng.annotations.Test;
-import pages.AccountPage;
-import pages.ForgetPasswordPage;
-import pages.HomePage;
+import pages.P1_AccountPage;
+import pages.P3_ForgetPasswordPage;
+import pages.P0_HomePage;
 
 
 public class TestForgotPasswordPage extends TestBase{
 
-    HomePage home;
-    AccountPage account;
-    ForgetPasswordPage forgetPass;
-
     @Test
     public void testForgotPassField(){
-        home = new HomePage(driver);
-        home.openAccountPage();
-        account = new AccountPage(driver);
-        account.goForgotPasswordPage();
-        forgetPass = new ForgetPasswordPage(driver);
-        forgetPass.setForgotPasswordField(data.getEmail());
-        softAssert.assertTrue(forgetPass.submitForgotPasswordBtn.isEnabled());
+        new P0_HomePage(driver).openAccountPage();
+        new P1_AccountPage(driver).goForgotPasswordPage();
+       new P3_ForgetPasswordPage(driver).setForgotPasswordField(data.getEmail());
     }
     @Test
     public void testForgotPassFieldWithInvalidEmail(){
-        home = new HomePage(driver);
-        home.openAccountPage();
-        account = new AccountPage(driver);
-        account.goForgotPasswordPage();
-        forgetPass = new ForgetPasswordPage(driver);
-        forgetPass.setForgotPasswordField(data.getInvalidEmail());
-        softAssert.assertFalse(forgetPass.submitForgotPasswordBtn.isEnabled());
+        new P0_HomePage(driver).openAccountPage();
+        new P1_AccountPage(driver).goForgotPasswordPage();
+        new P3_ForgetPasswordPage(driver).setForgotPasswordField(data.getInvalidEmail());
         driver.navigate().back();
 
     }

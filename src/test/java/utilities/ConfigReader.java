@@ -21,6 +21,7 @@ public class ConfigReader {
     public String getFname() {return GetProperty("Fname");}
     public String getLname() {return GetProperty("Lname");}
     public String getEmail() {return GetProperty("Email");}
+    public String getSEmail() {return GetProperty("SEmail");}
     public String getInvalidEmail() {return GetProperty("InvalidEmail");}
     public String getPass() {return GetProperty("Pass");}
     public String getPhoneNo() {return GetProperty("PhoneNo"); }// ونتأكد إن القيمة محفوظة كنص أصلاً}

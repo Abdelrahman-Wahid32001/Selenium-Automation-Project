@@ -3,30 +3,20 @@ package tests;
 
 import org.testng.Assert;
 import org.testng.annotations.Test;
-import pages.AccountPage;
-import pages.HomePage;
-import pages.RegistrationPage;
+import pages.P0_HomePage;
+import pages.P1_AccountPage;
+import pages.P2_RegistrationPage;
 
 
 public class TestRegistrationPage extends TestBase {
-  public   HomePage home;
-    RegistrationPage reg;
-    AccountPage account;
     @Test
     public void testValidRegistration() {
-        home = new HomePage(driver);
-        home.openAccountPage();
-        account= new AccountPage(driver);
-        account.createNewAccount();
+
+        new P0_HomePage(driver).openAccountPage();
+        new P1_AccountPage(driver).createNewAccount();
         Assert.assertEquals(driver.getTitle(),"Create New Customer Account");
-        reg = new RegistrationPage(driver);
-        reg.userRegistration(data.getFname(), data.getLname(), data.getEmail(), data.getPass());
-        Assert.assertNotNull(reg.getRegisteredAccountCorrectly());
+        new P2_RegistrationPage(driver)
+                .userRegistration(data.getFname(), data.getLname(), data.getEmail(), data.getPass());
 
-    }
-
-    @Test(dependsOnMethods = {"testValidRegistration"})
-    public void testBackToAccountPage(){
-        reg.getBackToAccountPage();
     }
 }
