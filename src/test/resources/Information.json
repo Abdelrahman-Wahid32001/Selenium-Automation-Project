@@ -1,0 +1,25 @@
+{
+  "Fname": "Abdo",
+  "InvalidFname": "11abdo",
+  "Lname": "Wahid",
+  "InvalidLname": "11Wahid",
+  "Email": [
+    "nike@nike.com",
+    "abdo@we.com",
+    "abdo@x.com"
+  ],
+  "InvalidEmail": [
+    "abdo@iteewe",
+    "abdoexample.com"
+  ],
+  "Pass": "123456789",
+  "EmptyPass": "    ",
+  "Address": "Cairo",
+  "City": "Giza",
+  "Zip": "112233",
+  "PhoneNo": "333396",
+  "MSG": "thanks for your effort",
+  "InvalidMSG": "     "
+}
+
+

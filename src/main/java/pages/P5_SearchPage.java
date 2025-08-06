@@ -4,10 +4,10 @@ import io.qameta.allure.Step;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.testng.Assert;
-import utilities.BrowserActions;
-import utilities.LogsUtils;
+import utils.BrowserActions;
+import utils.LogsUtils;
 
-import static utilities.ElementsActions.*;
+import static utils.ElementsActions.*;
 
 public class P5_SearchPage  {
 
@@ -23,9 +23,7 @@ public class P5_SearchPage  {
 
 
     //Action
-    public void navigateToPage() {
-        BrowserActions.navigateToURL(driver, "https://demo.mahocommerce.com/");
-    }
+
 
     @Step("enter all product name  in search box : {productName}")
     public P5_SearchPage setSearchBArTxt(String productName) {
@@ -35,26 +33,21 @@ public class P5_SearchPage  {
     }
 
     @Step("Open product details page ")
-    public P5_SearchPage openDetailsProductPage() {
+    public P7_ProductsPage openDetailsProductPage() {
         Click(driver, chelseaTeeWhiteBtn);
-        return this;
+        return new P7_ProductsPage(driver);
     }
 
     @Step("Writing letter of product name on search box  : {text}")
-    public P5_SearchPage getProductFromSuggestionSearch(String text) {
+    public P5_SearchPage setProductFromSuggestionSearch(String text) {
         SetText(driver, SearchBox, text);
-
-        // إذا لم تظهر العناصر، أعد الكتابة مرة أخرى
-        if (!getProductFromList(driver, suggestionItem)) {
-            LogsUtils.warn("Retrying search due to missing suggestions...");
-            SetText(driver, SearchBox, text);
-            getProductFromList(driver, suggestionItem);
-        }
         return this;
+
+    }
+    @Step("Select item fom suggestion search : {index}")
+    public P7_ProductsPage selectProduct( int index){
+        getProductFromList(driver, suggestionItem,index);
+        return new P7_ProductsPage(driver);
     }
 
-    //Validation
-    public void assertSuccessfulSearch() {
-        Assert.assertEquals(BrowserActions.currentURL(driver), "url");
-    }
 }

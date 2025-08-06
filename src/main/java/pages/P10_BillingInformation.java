@@ -1,10 +1,13 @@
 package pages;
 
+import io.qameta.allure.Step;
 import org.openqa.selenium.*;
+import utils.CustomSoftAssertion;
+import utils.PropertiesUtils;
 
-import static utilities.ElementsActions.Click;
-import static utilities.ElementsActions.SetText;
-import static utilities.ElementsActions.Select;
+import static utils.ElementsActions.Click;
+import static utils.ElementsActions.SetText;
+import static utils.ElementsActions.Select;
 
 public class P10_BillingInformation  {
     private final WebDriver driver;
@@ -27,7 +30,7 @@ public class P10_BillingInformation  {
     private final By  continueBtn = By.xpath("//*[@id=\"billing-buttons-container\"]/button");
 
 
-    public void fillBillingInformationFields(String fname,String lname,String Email,String Address,String City,String ZIP,String telephoneNo,String pass){
+    public P10_BillingInformation fillBillingInformationFields(String fname,String lname,String Email,String Address,String City,String ZIP,String telephoneNo,String pass){
         SetText(driver,firstName,fname);
         SetText(driver,lastName,lname);
         SetText(driver,email,Email);
@@ -39,14 +42,13 @@ public class P10_BillingInformation  {
         SetText(driver,confirmPassword,pass);
         Select(driver,stateDropList,5);
         Select(driver,countryDroplist,229);
-        Click(driver,addressTypeBtn);
-        Click(driver,continueBtn);
         //acceptAlert();
+        return this ;
 
 
     }
-
-    public void fillBillingInformationFields(String fname,String lname,String Email,String Address,String City,String ZIP,String telephoneNo){
+    @Step("Enter : {information) ")
+    public P10_BillingInformation fillBillingInformationFields(String fname,String lname,String Email,String Address,String City,String ZIP,String telephoneNo){
 
         SetText(driver,firstName,fname);
         SetText(driver,lastName,lname);
@@ -57,9 +59,23 @@ public class P10_BillingInformation  {
         SetText(driver,telephone,telephoneNo);
         Select(driver,stateDropList,5);
         Select(driver,countryDroplist,231);
-        Click(driver,addressTypeBtn);
-        Click(driver,continueBtn);
+        return this;
 
 
     }
+    public P10_BillingInformation selectTheAddressType(){
+        Click(driver,addressTypeBtn);
+        return this;
+    }
+    public P11_CheckOutPage submitTheInformation(){
+        Click(driver,continueBtn);
+        return new P11_CheckOutPage(driver);
+    }
+
+    public P10_BillingInformation assertURL(){
+        CustomSoftAssertion.SoftAssertion.assertEquals(driver.getCurrentUrl(), PropertiesUtils.getPropertyValue("CheckoutURL"));
+        return this;
+    }
+
+
 }

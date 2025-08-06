@@ -1,2 +1,13 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd"><suite name="All Test Suite"><test verbose="2" preserve-order="true" name="D:/FinalProjectAutomation - Copy - Copy/src/test/java/tests/TestLogin.java"><classes><class name="tests.TestLogin"><methods><include name="successfulLogin"/></methods></class></classes></test></suite>
+<!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
+<suite name="Selenium Automation Suite">
+    <listeners>
+        <listener class-name="io.qameta.allure.testng.AllureTestNg"/>
+    </listeners>
+
+    <test name="Contact Us Feature Tests">
+        <classes>
+            <class name="tests.testcases.TestContactUsFeature"/>
+        </classes>
+    </test>
+
+</suite>

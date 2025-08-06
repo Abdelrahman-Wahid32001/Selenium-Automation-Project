@@ -1,0 +1,20 @@
+{
+  "LinenBlazer": {
+    "name": "Linen Blazer",
+    "price": "$455.00"
+  },
+  "FrenchCuff": {
+    "name": "French Cuff Cotton Twill Oxford",
+    "price": "$190.00"
+  },
+  "ChelseaTee":{
+    "name": "Chelsea Tee",
+    "price": "$75.00"
+  },
+  "ParkRowThrow": {
+    "name": "Park Row Throw",
+    "price": "$120.00"
+  },
+  "SuggestProduct": ["pea","rx3"],
+  "numberOfProduct": ["1","5","100"]
+  }

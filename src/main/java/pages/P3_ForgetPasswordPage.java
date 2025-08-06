@@ -3,8 +3,8 @@ package pages;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 
-import static utilities.ElementsActions.Click;
-import static utilities.ElementsActions.SetText;
+import static utils.ElementsActions.Click;
+import static utils.ElementsActions.SetText;
 
 public class P3_ForgetPasswordPage  {
 
@@ -17,9 +17,10 @@ public class P3_ForgetPasswordPage  {
      private final By forgotPassEmailTxt = By.id ( "email_address");
     private final By  submitForgotPasswordBtn = By.cssSelector("button[title='Submit']");
 
-    public void setForgotPasswordField(String Email){
+    public P3_ForgetPasswordPage setForgotPasswordField(String Email){
 
        SetText(driver,forgotPassEmailTxt,Email);
        Click(driver,submitForgotPasswordBtn);
+       return this;
     }
 }

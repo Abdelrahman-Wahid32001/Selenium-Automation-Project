@@ -1,43 +1,96 @@
 package pages;
+
+import io.qameta.allure.Step;
 import org.openqa.selenium.*;
-import utilities.BrowserActions;
+import utils.BrowserActions;
+import utils.CustomSoftAssertion;
+import utils.PropertiesUtils;
 
-import static utilities.ElementsActions.*;
+import static utils.ElementsActions.*;
+import static utils.PropertiesUtils.getPropertyValue;
 
-public class P0_HomePage  {
-    private  final WebDriver driver;
-    public P0_HomePage (WebDriver driver){
+public class P0_HomePage {
+    private final WebDriver driver;
+
+    public P0_HomePage(WebDriver driver) {
         this.driver = driver;
     }
 
 
-    private final By accountButton = By.xpath( "//*[@id=\"header\"]/div[1]/div[2]/a[1]/span");
+    private final By accountButton = By.xpath("//*[@id=\"header\"]/div[1]/div[2]/a[1]/span");
     private final By contactUs = By.xpath("/html/body/div/div/footer/div/div[2]/ul/li[2]/a");
-    private final By newProductSectionItem2 = By.cssSelector("a[title='Linen Blazer']");
+    private final By linenBlazerProduct = By.cssSelector("a[title='Linen Blazer']");
     private final By manCategory = By.xpath("//*[@id=\"nav\"]/ol/li[2]/a");
-    private final By shirtsOnManCategoryBtn = By.xpath("//*[@id=\"nav\"]/ol/li[2]/ul/li[3]/a") ;
+    private final By shirtsOnManCategoryBtn = By.xpath("//*[@id=\"nav\"]/ol/li[2]/ul/li[3]/a");
     private final By goToHomeByLogo = By.cssSelector("a.logo");
+    private final By Bed_DecorCategory = By.xpath("//*[@id=\"nav\"]/ol/li[4]");
+    private final By bedOnBed_DecorCategory = By.xpath("//*[@id=\"nav\"]/ol/li[4]/ul/li[3]/a");
+    private final By cart = By.xpath("//*[@id='header']/div[1]/div[2]/div[2]/a/span[1]");
+
+
+    //Cart Elements
+
 
     public P0_HomePage navigateToPage() {
-        BrowserActions.navigateToURL(driver, "https://demo.mahocommerce.com/");
-    return this;
-    }
-    public P0_HomePage goToHomeByLogo(){
-        Click(driver,goToHomeByLogo);
+        BrowserActions.navigateToURL(driver, getPropertyValue("homeURL"));
         return this;
     }
-    public void openAccountPage() {
-        Click(driver,accountButton);
+
+
+
+
+    public P0_HomePage backToHomeByLogo() {
+        Click(driver, goToHomeByLogo);
+        return this;
     }
-    public void openContactUsPage(){
-       Click(driver,contactUs);
+
+    public P1_AccountPage openAccountPage() {
+        Click(driver, accountButton);
+        return new P1_AccountPage(driver);
     }
-    public void selectProductItem(){
-        Click(driver,newProductSectionItem2);
+
+    public P4_ContactUsPage openContactUsPage() {
+        Click(driver, contactUs);
+        return new P4_ContactUsPage(driver);
     }
-    public void selectFromCategory() {
-        hoverAndClick(driver,manCategory,shirtsOnManCategoryBtn);
-        }
+
+    public P7_ProductsPage selectProductItem() {
+        Click(driver, linenBlazerProduct);
+        return new P7_ProductsPage(driver);
+    }
+
+    public P6_SubCategoryPage selectFromCategoryMan() {
+        hoverAndClick(driver, manCategory, shirtsOnManCategoryBtn);
+        return new P6_SubCategoryPage(driver);
+    }
+
+    public P6_SubCategoryPage selectFromCategoryHome_Decor() {
+        hoverAndClick(driver, Bed_DecorCategory, bedOnBed_DecorCategory);
+        return new P6_SubCategoryPage(driver);
+    }
+    public CartPage openCart() {
+        Click(driver, cart);
+        return new CartPage(driver);
+    }
+
+
+
+    public P0_HomePage assertTitle() {
+        CustomSoftAssertion.SoftAssertion.assertEquals(BrowserActions.getPageTitle(driver), PropertiesUtils.getPropertyValue("homeTitle"));
+        return this;
+
+    }
+
+    public P0_HomePage assertURL() {
+        CustomSoftAssertion.SoftAssertion.assertEquals(BrowserActions.currentURL(driver), PropertiesUtils.getPropertyValue("homeURL"));
+        return this;
+
+    }
+
+    public P0_HomePage assertAll() {
+        assertTitle().assertURL();
+        return this;
+    }
 
 
 }

@@ -3,10 +3,15 @@ package pages;
 
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
+import utils.ElementsActions;
+import utils.PropertiesUtils;
+import utils.Waits;
 
-import static utilities.CustomSoftAssertion.SoftAssertion;
-import static utilities.ElementsActions.Click;
-import static utilities.ElementsActions.SetText;
+import java.util.Properties;
+
+import static utils.CustomSoftAssertion.SoftAssertion;
+import static utils.ElementsActions.Click;
+import static utils.ElementsActions.SetText;
 
 public class P4_ContactUsPage  {
     private  final WebDriver driver;
@@ -19,7 +24,7 @@ public class P4_ContactUsPage  {
     private final By Email = By.id("email");
     private final By phone = By.id("telephone");
     private final By message = By.id("comment");
-    public final By submitBtn = By.cssSelector("button[type='submit']");
+    public final By submitBtn = By.cssSelector("button[title='Submit']");
 
     private final By infoMessageContactUsPage = By.id("messages_product_view");
     private final By errorMessageContactUsPage = By.id("advice-required-entry-comment");
@@ -28,18 +33,25 @@ public class P4_ContactUsPage  {
         SetText(driver, Name, name);
         SetText(driver, Email, email);
         SetText(driver, message, masg);
+
         return this;
     }
 
     public void clickToSubmitMessage() {
+
         Click(driver, submitBtn);
+        try {
+            Thread.sleep(10000);
+        } catch (InterruptedException e) {
+            throw new RuntimeException(e);
+        }
     }
 
 
     //Validation
 
     public P4_ContactUsPage assertContactUsURL(){
-        SoftAssertion.assertEquals(driver.getCurrentUrl(),"https://demo.mahocommerce.com/contacts/","URL is not expected");
+        SoftAssertion.assertEquals(driver.getCurrentUrl(), PropertiesUtils.getPropertyValue("ContactUs"),"URL is not expected");
         return this;
     }
     public void assertContactUsTitle(){

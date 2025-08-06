@@ -2,7 +2,8 @@ package drivers;
 
 import io.qameta.allure.Step;
 import org.openqa.selenium.WebDriver;
-import utilities.LogsUtils;
+import utils.LogsUtils;
+import utils.PropertiesUtils;
 
 import static org.testng.Assert.fail;
 
@@ -13,8 +14,9 @@ public class DriverManager {
         super();
     }
 
-    @Step("create driver instance on: {browserName}")
-    public static WebDriver createInstance(String browserName) {
+    @Step("create driver instance on")
+    public static WebDriver createInstance() {
+        String browserName = PropertiesUtils.getPropertyValue("browserType");
         WebDriver driver = BrowserFactory.getBrowser(browserName);
         LogsUtils.info("Driver created on: ", browserName);
         setDriver(driver);

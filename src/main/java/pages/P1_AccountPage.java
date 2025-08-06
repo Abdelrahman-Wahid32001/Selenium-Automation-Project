@@ -4,10 +4,13 @@ import io.qameta.allure.Step;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.testng.Assert;
-import utilities.ElementsActions;
+import utils.BrowserActions;
+import utils.CustomSoftAssertion;
+import utils.ElementsActions;
+import utils.PropertiesUtils;
 
 
-import static utilities.ElementsActions.*;
+import static utils.ElementsActions.*;
 
 public class P1_AccountPage  {
     private  final WebDriver driver;
@@ -46,13 +49,13 @@ public class P1_AccountPage  {
         return this;
     }
 
-    public P1_AccountPage goForgotPasswordPage(){
+    public P3_ForgetPasswordPage goForgotPasswordPage(){
         Click(driver,forgotPasswordBtn);
-        return this;
+        return new P3_ForgetPasswordPage(driver);
     }
-    public P1_AccountPage createNewAccount(){
+    public P2_RegistrationPage createNewAccount(){
         Click(driver,createAccountLink);
-        return this;
+        return new P2_RegistrationPage(driver);
 }
 
     public String successfulLoginMssg(){
@@ -60,9 +63,27 @@ public class P1_AccountPage  {
     }
 
     //Validation
-     public void assertSuccessfulLogin(){
-         Assert.assertEquals(successfulLoginMssg(),"This account is not confirmed. Click here to resend confirmation email.");
-     }
+
+    public P1_AccountPage assertTitle(){
+        CustomSoftAssertion.SoftAssertion.assertEquals(BrowserActions.getPageTitle(driver), "Customer Login" );
+        return this;
+
+    }
+    public P1_AccountPage assertURL(){
+        CustomSoftAssertion.SoftAssertion.assertEquals(BrowserActions.currentURL(driver), PropertiesUtils.getPropertyValue("LoginURL") );
+        return this;
+        }
+
+    public P1_AccountPage asserSuccessLoginMessage(){
+        CustomSoftAssertion.SoftAssertion.assertEquals(successfulLoginMssg(), "This account is not confirmed. Click here to resend confirmation email." );
+        return this;
+    }
+    public P1_AccountPage asserUnsuccessLoginMessage(){
+        CustomSoftAssertion.SoftAssertion.assertEquals(successfulLoginMssg(), "Invalid login or password." );
+        return this;
+    }
+
+
 
 }
 
