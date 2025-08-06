@@ -1,0 +1,30 @@
+[DEBUG] - [26-07-2025 19:05:13] [main] [org.testng.TestNG] - suiteXmlPath: "C:\Users\MTM\AppData\Local\JetBrains\IdeaIC2025.1\temp-testng-customsuite.xml"
+[INFO] - [26-07-2025 19:05:14] [main] [org.testng.internal.Utils] - [TestNG] Running:
+  C:\Users\MTM\AppData\Local\JetBrains\IdeaIC2025.1\temp-testng-customsuite.xml
+
+[WARN] - [26-07-2025 19:05:14] [main] [utilities.FilesUtils] - Directory does not exist:target\allure-results
+[INFO] - [26-07-2025 19:05:17] [main] [drivers.DriverManager] - Driver created on: edge
+[ERROR] - [26-07-2025 19:05:23] [main] [io.qameta.allure.util.NamingUtils] - Could not find parameter loacator
+[INFO] - [26-07-2025 19:05:23] [main] [utilities.Waits] - Waiting the element to be clickable By.xpath: //*[@id="header"]/div[1]/div[2]/a[1]/span
+[INFO] - [26-07-2025 19:05:23] [main] [utilities.Waits] - Waiting the element to be visible By.xpath: //*[@id="header"]/div[1]/div[2]/a[1]/span
+[INFO] - [26-07-2025 19:05:23] [main] [utilities.Waits] - Waiting the element to be present By.xpath: //*[@id="header"]/div[1]/div[2]/a[1]/span
+[INFO] - [26-07-2025 19:05:23] [main] [utilities.Scrolling] - Scrolling to the element: By.xpath: //*[@id="header"]/div[1]/div[2]/a[1]/span
+[INFO] - [26-07-2025 19:05:23] [main] [utilities.ElementsActions] - Clicking on element: By.xpath: //*[@id="header"]/div[1]/div[2]/a[1]/span
+[INFO] - [26-07-2025 19:05:23] [main] [utilities.Waits] - Waiting the element to be visible By.id: email
+[INFO] - [26-07-2025 19:05:23] [main] [utilities.Waits] - Waiting the element to be present By.id: email
+[INFO] - [26-07-2025 19:05:23] [main] [utilities.Scrolling] - Scrolling to the element: By.id: email
+[INFO] - [26-07-2025 19:05:23] [main] [utilities.ElementsActions] - Data entered: nike@nike.com' into By.id: email
+[INFO] - [26-07-2025 19:05:23] [main] [utilities.Waits] - Waiting the element to be visible By.id: pass
+[INFO] - [26-07-2025 19:05:23] [main] [utilities.Waits] - Waiting the element to be present By.id: pass
+[INFO] - [26-07-2025 19:05:23] [main] [utilities.Scrolling] - Scrolling to the element: By.id: pass
+[INFO] - [26-07-2025 19:05:24] [main] [utilities.ElementsActions] - Data entered: 147258369' into By.id: pass
+[ERROR] - [26-07-2025 19:05:24] [main] [io.qameta.allure.util.NamingUtils] - Could not find parameter loacator
+[INFO] - [26-07-2025 19:05:24] [main] [utilities.Waits] - Waiting the element to be clickable By.id: send2
+[INFO] - [26-07-2025 19:05:24] [main] [utilities.Waits] - Waiting the element to be visible By.id: send2
+[INFO] - [26-07-2025 19:05:24] [main] [utilities.Waits] - Waiting the element to be present By.id: send2
+[INFO] - [26-07-2025 19:05:24] [main] [utilities.Scrolling] - Scrolling to the element: By.id: send2
+[INFO] - [26-07-2025 19:05:24] [main] [utilities.ElementsActions] - Clicking on element: By.id: send2
+[INFO] - [26-07-2025 19:05:24] [main] [utilities.Waits] - Waiting the element to be visible By.xpath: //*[@id="main-content"]/div/ul/li/ul/li
+[INFO] - [26-07-2025 19:05:24] [main] [utilities.Waits] - Waiting the element to be present By.xpath: //*[@id="main-content"]/div/ul/li/ul/li
+[INFO] - [26-07-2025 19:05:24] [main] [utilities.Scrolling] - Scrolling to the element: By.xpath: //*[@id="main-content"]/div/ul/li/ul/li
+[INFO] - [26-07-2025 19:05:24] [main] [utilities.ElementsActions] - Getting the text from the By.xpath: //*[@id="main-content"]/div/ul/li/ul/li Text: This account is not confirmed. Click here to resend confirmation email.

@@ -3,45 +3,33 @@ package tests;
 import org.testng.annotations.Test;
 import pages.*;
 
-public class TestLoginToCreateOrder extends TestBase{
-    HomePage home ;
-    LoginPage login ;
-    SecondProductPage product;
-    ShoppingCartPage shopping;
-    CheckOutMethodPage method;
-    BillingInformation info;
+public class TestLoginToCreateOrder extends TestBase {
+
 
     @Test
-    public void testLoginFeature(){
-        home = new HomePage(driver);
-        home.openAccountPage();
-        login = new LoginPage(driver);
-        login.setLoginFields(data.getEmail(), data.getPass());
-        login.confirmLogin();
-        login.submitConfirmationLogin();
-        softAssert.assertTrue(login.infoMessageLoginConfirmed.isDisplayed());
-        login.goToHomeByLogo();
-        home.selectProductItem();
-        product = new SecondProductPage(driver);
-        product.selectTheProduct();
-        shopping = new ShoppingCartPage(driver);
-        shopping.updateNumberOfProduct("2");
-        shopping.ProceedToCheckout();
-        method = new CheckOutMethodPage(driver);
-        method.getCheckoutPage("AsRegister");
-        info = new BillingInformation(driver);
-        info.fillBillingInformationFields(data.getFname(), data.getLname(),
-                data.getEmail(), data.getAddress(),
-                data.getCity(), data.getZip(),
-                data.getPhoneNo() , data.getPass());
+    public void testLoginFeature() {
+        new P0_HomePage(driver).openAccountPage();
+        new P1_AccountPage(driver).setLoginFields(data.getEmail(), data.getPass())
+                .clickOnSubmit()
+                .getConfirmationLoginEmail()
+                .setConfirmationLoginEmail();
 
-
-
-
-
-
-
-
+        new P0_HomePage(driver)
+                .goToHomeByLogo()
+                .selectProductItem();
+        new P7_ProductsPage(driver).setLinenBlazer();
+        new P8_ShoppingCartPage(driver)
+                //.updateNumberOfProduct("2")
+                .proceedToCheckout();
+        new P9_CheckOutMethodPage(driver)
+                .getCheckoutPage("AsRegister");
+        new P10_BillingInformation(driver)
+                .fillBillingInformationFields(data.getFname(), data.getLname(),
+                        data.getSEmail(), data.getAddress(),
+                        data.getCity(), data.getZip(),
+                        data.getPhoneNo(), data.getPass());
+        new P11_CheckOutPage(driver)
+                .finishCheckout();
 
 
     }

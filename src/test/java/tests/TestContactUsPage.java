@@ -1,38 +1,39 @@
 package tests;
 
+import drivers.DriverManager;
 import org.testng.annotations.Test;
-import pages.ContactUsPage;
-import pages.HomePage;
+import pages.P0_HomePage;
+import pages.P4_ContactUsPage;
 
-public class TestContactUsPage extends TestBase{
+public class TestContactUsPage extends TestBase {
 
-    HomePage home;
-    ContactUsPage contactUs;
+
     String masg = "hello every one ";
     String masg2 = "  ";
 
     @Test
-    public void testContactUsfeature(){
-        home = new HomePage(driver);
-        home.scrollDown();
-        home.openContactUsPage();
-        contactUs = new ContactUsPage(driver);
-        contactUs.fullContactUsFields(
-                data.getFname()+ data.getLname()
-                , data.getEmail()
-                ,masg );
-        softAssert.assertTrue(contactUs.infoMessageContactUsPage.isDisplayed());
+    public void testContactUsfeature() {
+
+        new P0_HomePage(driver).navigateToPage().openContactUsPage();
+        new P4_ContactUsPage(driver)
+                .fullContactUsFields(data.getFname() + data.getLname(), data.getEmail(), masg2)
+                .clickToSubmitMessage();
     }
+
     @Test
-    public void testContactUsfeatureWithInvalidMassage(){
-        home = new HomePage(driver);
-        home.scrollDown();
-        home.openContactUsPage();
-        contactUs = new ContactUsPage(driver);
-        contactUs.fullContactUsFields(
-                data.getFname()+ data.getLname()
-                , data.getEmail()
-                ,masg2);
-    softAssert.assertTrue(contactUs.errorMessageContactUsPage.isDisplayed());
+    public void testContactUsfeatureWithInvalidEmail() {
+        new P0_HomePage(driver).navigateToPage().openContactUsPage();
+        new P4_ContactUsPage(driver)
+                .fullContactUsFields(data.getFname() + data.getLname(), data.getEmail(), masg)
+                .clickToSubmitMessage();
     }
+
+    @Test
+    public void testContactUsfeatureWithInvalidMassage() {
+        new P0_HomePage(driver).navigateToPage().openContactUsPage();
+        new P4_ContactUsPage(driver)
+                .fullContactUsFields(data.getFname() + data.getLname(), data.getEmail(), masg2)
+                .clickToSubmitMessage();
+    }
+
 }

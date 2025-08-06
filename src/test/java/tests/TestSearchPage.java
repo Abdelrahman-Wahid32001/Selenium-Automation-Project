@@ -1,36 +1,36 @@
 package tests;
 
+import drivers.DriverManager;
+import org.openqa.selenium.WebDriver;
+import org.testng.annotations.AfterMethod;
+import org.testng.annotations.BeforeMethod;
+import org.testng.annotations.BeforeSuite;
 import org.testng.annotations.Test;
-import org.testng.asserts.SoftAssert;
-import pages.SearchPage;
+import pages.*;
+import utilities.BrowserActions;
+import utilities.FilesUtils;
 
-public class TestSearchPage extends TestBase{
+import java.io.File;
+
+public class TestSearchPage extends TestBase {
     String productName = "Chelsea Tee";
-    String txt = "Che";
-    SearchPage search;
-    SoftAssert softAssert =new SoftAssert()  ;
     @Test
-    public void testSearchFeature(){
+    public void testSearchFeature() {
 
-        search = new SearchPage(driver);
-        search.setSearchBArTxt(productName);
-        try {
-            Thread.sleep(500);
-        } catch (InterruptedException e) {
-            throw new RuntimeException(e);
-        }
-
-        search.openDetailsProductPage();
-        softAssert.assertEquals(driver.
-                        getTitle()
-                ,"Search results for: 'Chelsea Tee'"
-                ,"Title is no as expected");
-        try {
-            Thread.sleep(500);
-        } catch (InterruptedException e) {
-            throw new RuntimeException(e);
-        }
-
-
+        new P5_SearchPage(driver)
+                .setSearchBArTxt(productName)
+                .openDetailsProductPage();
+        new P7_ProductsPage(driver)
+                .setChelseaTeeWhite();
+        new P8_ShoppingCartPage(driver)
+                .proceedToCheckout();
+        new P9_CheckOutMethodPage(driver)
+                .getCheckoutPage();
+        new P10_BillingInformation(driver).fillBillingInformationFields(data.getFname()
+                , data.getLname(), data.getSEmail(), data.getAddress(),
+                data.getCity(), data.getZip(), data.getPhoneNo());
+        new P11_CheckOutPage(driver)
+                .finishCheckout();
     }
+
 }

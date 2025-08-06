@@ -1,0 +1,10 @@
+[DEBUG] - [27-07-2025 07:04:25] [main] [org.testng.TestNG] - suiteXmlPath: "C:\Users\MTM\AppData\Local\JetBrains\IdeaIC2025.1\temp-testng-customsuite.xml"
+[INFO] - [27-07-2025 07:04:28] [main] [org.testng.internal.Utils] - [TestNG] Running:
+  C:\Users\MTM\AppData\Local\JetBrains\IdeaIC2025.1\temp-testng-customsuite.xml
+
+[WARN] - [27-07-2025 07:04:28] [main] [utilities.FilesUtils] - Directory does not exist:test-outputs\allure-results
+[INFO] - [27-07-2025 07:04:34] [main] [drivers.DriverManager] - Driver created on: edge
+[ERROR] - [27-07-2025 07:04:34] [main] [io.qameta.allure.util.NamingUtils] - Could not find parameter loacator
+[INFO] - [27-07-2025 07:04:34] [main] [utilities.Waits] - Waiting the element to be clickable By.xpath: /html/body/div/div/footer/div/div[2]/ul/li[2]/a
+[INFO] - [27-07-2025 07:04:34] [main] [utilities.Waits] - Waiting the element to be visible By.xpath: /html/body/div/div/footer/div/div[2]/ul/li[2]/a
+[INFO] - [27-07-2025 07:04:34] [main] [utilities.Waits] - Waiting the element to be present By.xpath: /html/body/div/div/footer/div/div[2]/ul/li[2]/a
